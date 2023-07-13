@@ -20,8 +20,8 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/movies">
               Movies
             </Nav.Link>
-            <Nav.Link as={Link} to="/favorites">
-              Favorites
+            <Nav.Link as={Link} to="/add">
+              Add Movies
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
