@@ -30,6 +30,7 @@ const NavBar = () => {
             <img src="/images/user.png" alt="user" className="userIcon" />
           </Dropdown.Toggle>
           <Dropdown.Menu>
+            <Dropdown.Item href="/user">Profile</Dropdown.Item>
             <Dropdown.Item href="/login">Login</Dropdown.Item>
             <Dropdown.Item href="/register">Register</Dropdown.Item>
             <Dropdown.Divider />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import MovieDataService from "../services/movies";
+import MovieDataService from "../../services/movies";
 import { Link } from "react-router-dom";
 import { Card, Col, Container, Row, Form, Button } from "react-bootstrap";
 import { BsStar, BsStarFill } from "react-icons/bs";

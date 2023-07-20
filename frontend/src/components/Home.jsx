@@ -1,7 +1,9 @@
 import React from "react";
 import { Button, Row, Col, Form, Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Row className="justify-content-md-center" style={{ marginTop: "20%" }}>
@@ -32,10 +34,24 @@ const Home = () => {
               style={{ marginTop: "10%" }}
             >
               <Col xs={4}>
-                <Button variant="outline-primary">SELL</Button>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => {
+                    navigate("/movies");
+                  }}
+                >
+                  SELL
+                </Button>
               </Col>
               <Col xs={4}>
-                <Button variant="outline-primary">BUY</Button>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => {
+                    navigate("/add");
+                  }}
+                >
+                  BUY
+                </Button>
               </Col>
             </Row>
           </Form>

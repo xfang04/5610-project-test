@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Card, Col, Container, Row, Image, Button } from "react-bootstrap";
 import moment from "moment";
 
-import MovieDataService from "../services/movies";
+import MovieDataService from "../../services/movies";
 
 const Movie = ({ user }) => {
   let params = useParams();
