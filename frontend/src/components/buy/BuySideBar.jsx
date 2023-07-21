@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import Search from "antd/es/input/Search";
 import SideBar from "../shared/SideBar";
+import { useNavigate } from "react-router-dom";
 
 const { Content } = Layout;
 
@@ -15,6 +16,7 @@ const MenuItem = [
 ];
 
 const BuySidebar = () => {
+  const navigate = useNavigate();
   return (
     <SideBar>
       <Search
@@ -23,6 +25,13 @@ const BuySidebar = () => {
         enterButton="Search"
         size="large"
         style={{ width: 220 }}
+        onSearch={(value) => {
+          if (value === "") {
+            return navigate("/movies/");
+          } else {
+            return navigate(`/movies/search/${value}`);
+          }
+        }}
       />
       <Content style={{ padding: "0 24px", minHeight: 280 }}>
         <Menu

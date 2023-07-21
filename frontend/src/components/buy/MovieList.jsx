@@ -1,20 +1,24 @@
 import React, { useState, useEffect, useCallback } from "react";
 import MovieDataService from "../../services/movies";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Card, Col, Container, Row, Form, Button } from "react-bootstrap";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 import "./MoviesList.css";
 
 const MoviesList = ({ user, favorites, addFavorite, deleteFavorite }) => {
+  let { keyword } = useParams();
+  console.log("keyword", keyword);
   // useState to set state values
   const [movies, setMovies] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
+  const [searchTitle, setSearchTitle] = useState(keyword || "");
   const [searchRating, setSearchRating] = useState("");
   const [ratings, setRatings] = useState(["All Ratings"]);
   const [currentPage, setCurrentPage] = useState(0);
   const [entriesPerPage, setEntriesPerPage] = useState(0);
-  const [currentSearchMode, setCurrentSearchMode] = useState("");
+  const [currentSearchMode, setCurrentSearchMode] = useState(
+    keyword ? "findByTitle" : ""
+  );
 
   const retrieveRating = useCallback(() => {
     MovieDataService.getRating()
@@ -89,6 +93,10 @@ const MoviesList = ({ user, favorites, addFavorite, deleteFavorite }) => {
   useEffect(() => {
     retrieveNextPage();
   }, [currentPage, retrieveNextPage]);
+
+  useEffect(() => {
+    setSearchTitle(keyword);
+  }, [keyword]);
 
   const onChangeSearchTitle = (e) => {
     const searchTitle = e.target.value;

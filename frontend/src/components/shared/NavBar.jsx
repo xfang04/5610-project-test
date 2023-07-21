@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import Login from "../Login";
+import Logout from "../Logout";
 
 const NavBar = () => {
+  const user = useSelector(selectCurrentUser);
   return (
     <Navbar bg="primary" expand="lg" sticky="top" variant="dark">
       <Container className="container-fluid">
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
           <img
             src="/images/movies-logo.png"
             alt="movies logo"
@@ -30,11 +35,17 @@ const NavBar = () => {
             <img src="/images/user.png" alt="user" className="userIcon" />
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="/user">Profile</Dropdown.Item>
-            <Dropdown.Item href="/login">Login</Dropdown.Item>
-            <Dropdown.Item href="/register">Register</Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+            {user ? (
+              <>
+                <Dropdown.Item as={Link} to="/user">
+                  Profile
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item as={Logout}>Logout</Dropdown.Item>
+              </>
+            ) : (
+              <Dropdown.Item as={Login}>Login</Dropdown.Item>
+            )}
           </Dropdown.Menu>
         </Dropdown>
       </Container>

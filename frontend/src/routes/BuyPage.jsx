@@ -12,6 +12,7 @@ const BuyPage = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<MoviesList />} />
+          <Route path="/search/:keyword" element={<MoviesList />} />
           <Route path="/:id" element={<Movie />} />
         </Routes>
       </Layout>
