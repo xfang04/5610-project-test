@@ -15,7 +15,7 @@ const Home = () => {
     if (keyword === "") {
       navigate();
     } else {
-      navigate(`/movies/search/${keyword}`);
+      navigate(`/movies/?category=${keyword}`);
     }
   };
   return (
@@ -58,7 +58,7 @@ const Home = () => {
                 onClick={() =>
                   keyword === ""
                     ? navigate("/movies")
-                    : navigate(`/movies/search/${keyword}`)
+                    : navigate(`/movies/?category=${keyword}`)
                 }
               >
                 BUY

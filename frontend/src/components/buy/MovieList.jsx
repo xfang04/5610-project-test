@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
+import qs from "qs";
 import MovieDataService from "../../services/movies";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Card, Col, Container, Row, Form, Button } from "react-bootstrap";
 import { BsStar, BsStarFill } from "react-icons/bs";
 
 import "./MoviesList.css";
 
 const MoviesList = ({ user, favorites, addFavorite, deleteFavorite }) => {
-  let { keyword } = useParams();
-  console.log("keyword", keyword);
+  let location = useLocation();
+  const query = qs.parse(location.search, { ignoreQueryPrefix: true });
+  let keyword = query.category || "";
+
   // useState to set state values
   const [movies, setMovies] = useState([]);
   const [searchTitle, setSearchTitle] = useState(keyword || "");

@@ -29,7 +29,7 @@ const BuySidebar = () => {
           if (value === "") {
             return navigate("/movies/");
           } else {
-            return navigate(`/movies/search/${value}`);
+            return navigate(`/movies/?category=${value}`);
           }
         }}
       />

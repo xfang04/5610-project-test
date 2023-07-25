@@ -3,7 +3,7 @@ import UserSideBar from "../components/user/UserSideBar";
 import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
 import Orders from "../components/user/Orders";
-import Profile from "../components/user/Profile";
+import UserProfile from "../components/user/UserProfile";
 import EditProfile from "../components/user/EditProfile";
 import Favorites from "../components/user/Favorites";
 const UserPage = () => {
@@ -12,8 +12,8 @@ const UserPage = () => {
       <UserSideBar />
       <Layout>
         <Routes>
-          <Route path="/" element={<Profile />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<UserProfile />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/edit-profile" element={<EditProfile />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/orders" element={<Orders />} />

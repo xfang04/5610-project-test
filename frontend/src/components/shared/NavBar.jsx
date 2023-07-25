@@ -25,9 +25,11 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/movies">
               Movies
             </Nav.Link>
-            <Nav.Link as={Link} to="/add">
-              Add Movies
-            </Nav.Link>
+            {user && (
+              <Nav.Link as={Link} to="/add">
+                Add Movies
+              </Nav.Link>
+            )}
           </Nav>
         </Navbar.Collapse>
         <Dropdown>
